@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ app_name }} — AI Learning Assistant</title>
+  <link rel="stylesheet" href="{{ url_for('static', path='style.css') }}">
+</head>
+<body>
+  <main class="container">
+    <header class="hero">
+      <div class="brand">EduGenie 🧠</div>
+      <h1>Your AI learning companion</h1>
+      <p>Ask questions, simplify concepts, generate quizzes, summarize notes, and build learning paths.</p>
+    </header>
+
+    <section class="grid">
+      <article class="card">
+        <div class="card-head"><h2>Ask a Question</h2><span>Q&amp;A</span></div>
+        <textarea id="qa-input" placeholder="Which is the largest ocean?"></textarea>
+        <button onclick="runQA()">Get Answer</button>
+        <div id="qa-output" class="output"></div>
+      </article>
+
+      <article class="card">
+        <div class="card-head"><h2>Explain a Topic</h2><span>Explain</span></div>
+        <input id="explain-input" placeholder="Pythagoras theorem">
+        <button onclick="runExplain()">Explain</button>
+        <div id="explain-output" class="output"></div>
+      </article>
+
+      <article class="card wide">
+        <div class="card-head"><h2>Summarize a Passage</h2><span>Summary</span></div>
+        <textarea id="summary-input" placeholder="Paste a long educational passage here..."></textarea>
+        <button onclick="runSummary()">Summarize</button>
+        <div id="summary-output" class="output"></div>
+      </article>
+
+      <article class="card wide">
+        <div class="card-head"><h2>Generate a Quiz</h2><span>MCQ</span></div>
+        <textarea id="quiz-input" placeholder="Paste a topic or passage for quiz generation..."></textarea>
+        <div class="row">
+          <label>Questions <select id="quiz-count"><option>3</option><option>5</option><option>10</option></select></label>
+          <button onclick="runQuiz()">Generate Quiz</button>
+        </div>
+        <div id="quiz-output" class="output"></div>
+      </article>
+
+      <article class="card wide">
+        <div class="card-head"><h2>Learning Path</h2><span>Recommendations</span></div>
+        <div class="row two">
+          <input id="learn-input" placeholder="SQL">
+          <select id="learn-level">
+            <option value="beginner">Beginner</option>
+            <option value="intermediate">Intermediate</option>
+            <option value="advanced">Advanced</option>
+          </select>
+        </div>
+        <button onclick="runLearningPath()">Get Learning Recommendations</button>
+        <div id="learn-output" class="output"></div>
+      </article>
+    </section>
+
+    <footer>EduGenie • FastAPI + HTML/CSS + Google Gemini</footer>
+  </main>
+  <script src="{{ url_for('static', path='app.js') }}"></script>
+</body>
+</html>
